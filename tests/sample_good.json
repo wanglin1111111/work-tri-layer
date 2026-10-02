@@ -1,0 +1,59 @@
+{
+  "scan": {
+    "monthly_minutes": 30,
+    "sources": ["人社部新职业公示", "所在行业头部招聘 JD（3 家）"],
+    "signals_tracked": ["新冒出来的岗位名称", "JD 里反复出现的技能词"]
+  },
+  "layers": {
+    "inventory_weekly": true,
+    "items": [
+      {"name": "写周报初稿", "weekly_hours": 2, "layer": "replaceable"},
+      {"name": "整理销售数据", "weekly_hours": 2, "layer": "replaceable"},
+      {"name": "基础代码脚手架", "weekly_hours": 2, "layer": "replaceable"},
+      {"name": "定下季度OKR", "weekly_hours": 1, "layer": "command"},
+      {"name": "拆任务写验收标准", "weekly_hours": 1.5, "layer": "command"},
+      {"name": "审AI生成的方案", "weekly_hours": 1.5, "layer": "judgment"},
+      {"name": "判断交付能不能过", "weekly_hours": 1, "layer": "judgment"},
+      {"name": "客户访谈翻译需求", "weekly_hours": 3, "layer": "people"}
+    ],
+    "layer_values": ["replaceable", "command", "judgment", "people"],
+    "misplaced": []
+  },
+  "compression": {
+    "replaceable_hours_before": 6,
+    "replaceable_hours_after": 3,
+    "acceptance_checklists_ready": true,
+    "time_reallocation": [
+      {"target": "command", "hours": 1.5, "concrete": "把方案类任务的验收标准写到5条"},
+      {"target": "people", "hours": 1.5, "concrete": "承接2次客户访谈并产出需求拆解文档"}
+    ]
+  },
+  "coach_loop": {
+    "goal_owner": "human",
+    "stepwise_execution": true,
+    "max_rework_rounds": 2,
+    "assets": {
+      "prompt_lib_min_entries": 6,
+      "acceptance_checklist_min_items": 3,
+      "acceptance_checklist_max_items": 5,
+      "failure_log_entries": 9,
+      "repeated_failures_promoted": true
+    }
+  },
+  "people_side": {
+    "capability": "需求翻译",
+    "delivery_last_month": "3 次客户访谈，产出 3 份需求拆解文档，1 份被直接采用进迭代排期",
+    "in_workflow": true
+  },
+  "opportunity_screen": {
+    "rule": "serve_ai|serve_people|exit",
+    "exit_targets": ["纯数据搬运的报表整理岗"],
+    "current_role_classified": true
+  },
+  "experiment_90d": {
+    "direction": "适老化改造：给公司养老事业部做入住流程模拟方案",
+    "direction_class": "serve_people",
+    "external_feedback_source": "养老事业部试点团队（3 名真实运营 + 2 名体验用户）",
+    "start_date": "2026-10-06"
+  }
+}

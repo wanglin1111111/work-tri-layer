@@ -1,0 +1,52 @@
+{
+  "scan": {
+    "monthly_minutes": 5,
+    "sources": ["十篇趋势文"],
+    "signals_tracked": ["AI 要来了的感觉"]
+  },
+  "layers": {
+    "inventory_weekly": false,
+    "items": [
+      {"name": "让AI定目标", "weekly_hours": 1, "layer": "replaceable"},
+      {"name": "AI检查AI的产出", "weekly_hours": 1, "layer": "replaceable"},
+      {"name": "整理数据", "weekly_hours": 0, "layer": "replaceable"},
+      {"name": "陪客户吃饭", "weekly_hours": 2, "layer": "replaceable"}
+    ],
+    "layer_values": ["replaceable", "command", "judgment", "people"],
+    "misplaced": ["让AI定目标（已识别是指挥层但没改）"]
+  },
+  "compression": {
+    "replaceable_hours_before": 4,
+    "replaceable_hours_after": 4,
+    "acceptance_checklists_ready": false,
+    "time_reallocation": []
+  },
+  "coach_loop": {
+    "goal_owner": "ai",
+    "stepwise_execution": false,
+    "max_rework_rounds": 5,
+    "assets": {
+      "prompt_lib_min_entries": 1,
+      "acceptance_checklist_min_items": 1,
+      "acceptance_checklist_max_items": 1,
+      "failure_log_entries": 0,
+      "repeated_failures_promoted": false
+    }
+  },
+  "people_side": {
+    "capability": "读了几本共情的书",
+    "delivery_last_month": "",
+    "in_workflow": false
+  },
+  "opportunity_screen": {
+    "rule": "看着办",
+    "exit_targets": [],
+    "current_role_classified": false
+  },
+  "experiment_90d": {
+    "direction": "把现在的工作干得更熟练",
+    "direction_class": "middle_repeatable",
+    "external_feedback_source": "",
+    "start_date": "2026-10-06"
+  }
+}
